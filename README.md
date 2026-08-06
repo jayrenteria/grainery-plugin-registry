@@ -12,9 +12,9 @@ generates both the website and the registry index consumed by Grainery.
 
 ## Status
 
-The registry contracts, publication pipeline, public catalog, and website-to-app
-install flow are implemented. Production launch still requires signing-key setup,
-deployment configuration, an approved initial plugin, and installed-app smoke tests.
+The registry contracts, publication pipeline, public catalog, website-to-app install
+flow, production signing key, and deployment are configured. Production launch still
+requires an approved initial plugin and installed-app smoke tests.
 
 ## Local commands
 

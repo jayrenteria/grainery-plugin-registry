@@ -33,9 +33,9 @@ with persistent recovery backups. Website install links can select only an exact
 and version from the compiled official registry URL, and installation requires a
 native confirmation.
 
-The remaining launch blocker is replacing Screenwrite's placeholder all-zero public
-key with the production registry public key. Platform-installed deep-link handling
-must also be smoke-tested on every supported desktop operating system before release.
+Screenwrite embeds the production registry public key and verifies it against a known
+signature fixture. Platform-installed deep-link handling must still be smoke-tested
+on every supported desktop operating system before release.
 
 ## Key handling
 

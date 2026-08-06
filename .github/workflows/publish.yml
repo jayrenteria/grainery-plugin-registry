@@ -37,9 +37,13 @@ jobs:
         run: |
           base_ref="$PUSH_BASE_REF"
           if [[ -z "$base_ref" || "$base_ref" =~ ^0+$ ]]; then
-            base_ref="$(git rev-parse HEAD^ 2>/dev/null || git rev-list --max-parents=0 HEAD)"
+            base_ref="$(git rev-parse --verify HEAD^ 2>/dev/null || true)"
           fi
-          node scripts/build-registry.mjs --base-ref "$base_ref"
+          if [[ -n "$base_ref" ]]; then
+            node scripts/build-registry.mjs --base-ref "$base_ref"
+          else
+            node scripts/build-registry.mjs
+          fi
       - name: Build marketplace
         run: npm run build
       - name: Deploy static assets

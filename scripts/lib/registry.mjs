@@ -127,6 +127,7 @@ export async function loadAndValidateRegistry({ rootDir, baseRef } = {}) {
   const records = [];
   const seen = new Set();
   for (const pluginEntry of await pluginNames) {
+    if (pluginEntry.name.startsWith('.')) continue;
     if (!pluginEntry.isDirectory()) { errors.push(`Registry plugins entry must be a directory: ${pluginEntry.name}`); continue; }
     const pluginDir = path.join(pluginsRoot, pluginEntry.name);
     const pluginMetadata = await readJson(path.join(pluginDir, 'plugin.json'), errors);

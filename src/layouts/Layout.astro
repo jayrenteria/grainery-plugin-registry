@@ -1,0 +1,83 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = 'Approved plugins for Grainery.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={description} />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<a class="skip-link" href="#content">Skip to plugins</a>
+		<header class="site-header">
+			<div class="container header-inner">
+				<a class="brand" href="/" aria-label="Grainery Plugin Registry home">
+					<img src="/logo.png" alt="" width="42" height="42" />
+					<span>Grainery<br />Plugins</span>
+				</a>
+				<nav aria-label="Primary navigation">
+					<a href="https://grainery.xyz">Grainery</a>
+					<a href="https://docs.grainery.xyz/plugins/overview/">Plugin docs</a>
+				</nav>
+			</div>
+		</header>
+		<main id="content"><slot /></main>
+		<footer class="site-footer">
+			<div class="container footer-inner">
+				<span>Approved plugins for Grainery.</span>
+				<a href="https://github.com/jayrenteria/grainery">GitHub</a>
+			</div>
+		</footer>
+	</body>
+</html>
+
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap');
+
+	:root {
+		--paper: #f5f1e7;
+		--paper-alt: #ece6d6;
+		--wine: #38010b;
+		--wine-deep: #26050b;
+		--gold: #dc8f00;
+		--gold-deep: #9d6500;
+		--ink: #1c1c1c;
+		--muted: #5e5450;
+		--line: rgba(56, 1, 11, 0.18);
+		font-family: 'Nunito Sans', Arial, sans-serif;
+		color: var(--ink);
+		background: var(--paper);
+	}
+
+	* { box-sizing: border-box; }
+	html { background: var(--paper); }
+	body { margin: 0; min-width: 320px; }
+	a { color: var(--wine); text-underline-offset: 0.16em; }
+	a:hover { color: var(--gold-deep); }
+	a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+	.container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+	.skip-link { position: absolute; left: 1rem; top: -4rem; z-index: 3; background: var(--wine); color: white; padding: 0.65rem 0.85rem; }
+	.skip-link:focus { top: 1rem; }
+	.site-header { border-bottom: 1px solid var(--line); background: rgba(245, 241, 231, 0.96); }
+	.header-inner, .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 76px; }
+	.brand { display: inline-flex; align-items: center; gap: 0.65rem; color: var(--wine); font-family: 'Courier Prime', monospace; font-weight: 700; line-height: 1; text-decoration: none; text-transform: uppercase; }
+	.brand img { border-radius: 4px; }
+	nav { display: flex; gap: 1.25rem; font-size: 0.95rem; font-weight: 700; }
+	nav a { text-decoration: none; }
+	.site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+	.footer-inner { min-height: 84px; }
+	@media (max-width: 560px) {
+		.container { width: min(100% - 28px, 1120px); }
+		nav { gap: 0.8rem; font-size: 0.83rem; }
+		.footer-inner { align-items: flex-start; flex-direction: column; justify-content: center; }
+	}
+</style>

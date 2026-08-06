@@ -1,0 +1,30 @@
+{
+  "name": "grainery-plugin-registry",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "test": "node --test tests/*.test.mjs",
+    "registry:validate": "node scripts/validate-registry.mjs",
+    "registry:build": "node scripts/build-registry.mjs",
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "astro": "^7.1.6",
+    "semver": "^7.8.5",
+    "yauzl": "^3.4.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.103.0"
+  },
+  "overrides": {
+    "undici": "7.29.0"
+  }
+}

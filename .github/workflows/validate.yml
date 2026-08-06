@@ -1,0 +1,39 @@
+name: Validate registry
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches-ignore: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Test signing
+        run: node --test tests/*.test.mjs
+      - name: Create ephemeral non-production signing key
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import { appendFileSync } from 'node:fs';
+          import { generateKeyPairSync } from 'node:crypto';
+          const { privateKey } = generateKeyPairSync('ed25519');
+          const pem = privateKey.export({ type: 'pkcs8', format: 'pem' });
+          appendFileSync(process.env.GITHUB_ENV, `REGISTRY_SIGNING_KEY_ID=pr-ephemeral-not-trusted\nREGISTRY_SIGNING_PRIVATE_KEY<<GRAINERY_KEY\n${pem}GRAINERY_KEY\n`);
+          NODE
+      - name: Validate and generate registry
+        run: node scripts/build-registry.mjs --base-ref origin/main
+      - name: Build marketplace
+        run: npm run build

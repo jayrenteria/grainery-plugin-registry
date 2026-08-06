@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://plugins.grainery.xyz/schemas/version.schema.json",
+  "title": "Grainery plugin version metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "version", "archive", "releaseNotes", "yanked"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+    },
+    "archive": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]+\\.grainery-plugin\\.zip$"
+    },
+    "releaseNotes": { "type": "string", "minLength": 1, "maxLength": 5000 },
+    "yanked": { "type": "boolean" }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://plugins.grainery.xyz/schemas/plugin.schema.json",
+  "title": "Grainery catalog plugin metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "publisher", "license", "categories", "tags"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^(?!\\.{1,2}$)[a-z0-9._-]+$"
+    },
+    "publisher": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "url": { "type": "string", "format": "uri", "pattern": "^https://" }
+      }
+    },
+    "license": { "type": "string", "minLength": 1, "maxLength": 100 },
+    "repositoryUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
+    "homepageUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
+    "categories": {
+      "type": "array",
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "editing",
+          "formatting",
+          "navigation",
+          "productivity",
+          "review",
+          "writing"
+        ]
+      }
+    },
+    "tags": {
+      "type": "array",
+      "maxItems": 10,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32,
+        "pattern": "^[a-z0-9-]+$"
+      }
+    },
+    "icon": {
+      "type": "string",
+      "pattern": "^icon\\.(png|webp)$"
+    },
+    "readme": {
+      "type": "string",
+      "pattern": "^README\\.md$"
+    },
+    "screenshots": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "alt"],
+        "properties": {
+          "path": {
+            "type": "string",
+            "pattern": "^screenshots/[A-Za-z0-9._-]+\\.(png|jpe?g|webp)$"
+          },
+          "alt": { "type": "string", "minLength": 1, "maxLength": 200 }
+        }
+      }
+    }
+  }
+}

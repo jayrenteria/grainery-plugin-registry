@@ -1,0 +1,11 @@
+dist/
+.astro/
+.wrangler/
+node_modules/
+public/media/
+public/packages/
+public/registry/
+npm-debug.log*
+.env
+.env.production
+.DS_Store

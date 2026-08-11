@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "com.grainery.character-manager",
+  "publisher": {
+    "name": "Grainery",
+    "url": "https://grainery.xyz"
+  },
+  "license": "MIT",
+  "repositoryUrl": "https://github.com/jayrenteria/grainery/tree/main/examples/plugins/character-manager",
+  "homepageUrl": "https://grainery.xyz",
+  "categories": [
+    "editing",
+    "productivity",
+    "writing"
+  ],
+  "tags": [
+    "characters",
+    "autocomplete",
+    "renaming"
+  ],
+  "readme": "README.md"
+}

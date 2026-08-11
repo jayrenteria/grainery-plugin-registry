@@ -1,4 +1,5 @@
 import { readFile } from 'node:fs/promises';
+import path from 'node:path';
 
 export type Plugin = {
 	id: string;
@@ -33,7 +34,7 @@ export type Plugin = {
 
 type Catalog = { plugins?: unknown };
 
-const catalogPath = new URL('../../public/registry/v1/catalog.json', import.meta.url);
+const catalogPath = path.resolve('public/registry/v1/catalog.json');
 
 function isPlugin(value: unknown): value is Plugin {
 	if (!value || typeof value !== 'object') return false;

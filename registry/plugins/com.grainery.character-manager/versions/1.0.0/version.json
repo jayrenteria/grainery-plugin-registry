@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "archive": "com.grainery.character-manager-1.0.0.grainery-plugin.zip",
+  "releaseNotes": "Initial release with character cue autocomplete, selected-character highlighting, and previewed cue-only renaming.",
+  "yanked": false
+}

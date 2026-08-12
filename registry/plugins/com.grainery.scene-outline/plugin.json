@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "com.grainery.scene-outline",
+  "publisher": {
+    "name": "Grainery",
+    "url": "https://grainery.xyz"
+  },
+  "license": "MIT",
+  "repositoryUrl": "https://github.com/aindaco1/scene-manager",
+  "homepageUrl": "https://grainery.xyz",
+  "categories": [
+    "navigation",
+    "productivity",
+    "writing"
+  ],
+  "tags": [
+    "outline",
+    "scene-numbers",
+    "scenes"
+  ],
+  "readme": "README.md"
+}

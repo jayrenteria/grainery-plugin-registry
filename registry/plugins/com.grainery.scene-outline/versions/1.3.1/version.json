@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "version": "1.3.1",
+  "archive": "com.grainery.scene-outline-1.3.1.grainery-plugin.zip",
+  "releaseNotes": "Initial registry release with automatic scene numbering, an always-visible scene map, jump navigation, an optional outline panel, and export persistence.",
+  "yanked": false
+}

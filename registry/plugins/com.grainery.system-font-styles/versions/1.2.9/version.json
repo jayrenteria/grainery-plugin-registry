@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "version": "1.2.9",
+  "archive": "com.grainery.system-font-styles-1.2.9.grainery-plugin.zip",
+  "releaseNotes": "Initial registry release with installed font family and variant selection, common text sizes, block alignment, and editor/PDF fallbacks.",
+  "yanked": false
+}

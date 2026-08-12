@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "com.grainery.system-font-styles",
+  "publisher": {
+    "name": "Grainery",
+    "url": "https://grainery.xyz"
+  },
+  "license": "MIT",
+  "repositoryUrl": "https://github.com/aindaco1/system-font-styles",
+  "homepageUrl": "https://grainery.xyz",
+  "categories": [
+    "editing",
+    "formatting",
+    "productivity"
+  ],
+  "tags": [
+    "fonts",
+    "styles",
+    "typography"
+  ],
+  "readme": "README.md"
+}

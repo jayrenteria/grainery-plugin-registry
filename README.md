@@ -18,6 +18,8 @@ requires an approved initial plugin and installed-app smoke tests.
 
 ## Local commands
 
+Use Node.js 24.22.1 (`nvm install && nvm use`) for the patched certificate trust store.
+
 ```bash
 npm install
 npm test
